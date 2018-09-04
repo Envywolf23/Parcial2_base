@@ -17,20 +17,34 @@ public class HazardSpawner : MonoBehaviour
     [SerializeField]
     private GameObject hazardTemplate;
 
+    [SerializeField]
+    private GameObject debrisTemplate;
+
+    [SerializeField]
+    private GameObject invaderTemplate;
+
     private Collider2D myCollider;
 
     [SerializeField]
-    private float spawnFrequency = 1F;
+    private float spawnFrequencyHazard = 1F;
+
+    [SerializeField]
+    private float spawnFrequencyDebris = 1F;
+
+    [SerializeField]
+    private float spawnFrequencyInvader = 1F;
 
     // Use this for initialization
     private void Start()
     {
         myCollider = GetComponent<Collider2D>();
 
-        InvokeRepeating("SpawnEnemy", 0.2F, spawnFrequency);
+        InvokeRepeating("SpawnHazard", 0.2F, spawnFrequencyHazard);
+        InvokeRepeating("SpawnDebris", 1.3F, spawnFrequencyDebris);
+        InvokeRepeating("SpawnInvader", 2.4F, spawnFrequencyInvader);
     }
 
-    private void SpawnEnemy()
+    private void SpawnHazard()
     {
         if (hazardTemplate == null)
         {
@@ -40,5 +54,32 @@ public class HazardSpawner : MonoBehaviour
         {
             Instantiate(hazardTemplate, myCollider.GetPointInVolume(), transform.rotation);
         }
+
+    }
+
+    private void SpawnDebris()
+    {
+        if (debrisTemplate == null)
+        {
+            CancelInvoke();
+        }
+        else
+        {
+            Instantiate(debrisTemplate, myCollider.GetPointInVolume(), transform.rotation);
+        }
+
+    }
+
+    private void SpawnInvader()
+    {
+        if (invaderTemplate == null)
+        {
+            CancelInvoke();
+        }
+        else
+        {
+            Instantiate(invaderTemplate, myCollider.GetPointInVolume(), transform.rotation);
+        }
+
     }
 }

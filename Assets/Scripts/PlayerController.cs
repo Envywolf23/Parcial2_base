@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Collider2D))]
 public class PlayerController : MonoBehaviour
@@ -61,6 +62,8 @@ public class PlayerController : MonoBehaviour
         {
             Time.timeScale = 0F;
             print("Game Over");
+            SceneManager.LoadScene("Game Over");
+
         }
     }
 

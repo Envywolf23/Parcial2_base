@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Collider2D))]
 [RequireComponent(typeof(Rigidbody2D))]
@@ -6,6 +7,7 @@ public class Hazard : MonoBehaviour
 {
     private Collider2D myCollider;
     private object myRigidbody;
+    public int clase;
 
     [SerializeField]
     private float resistance = 1F;
@@ -19,6 +21,18 @@ public class Hazard : MonoBehaviour
         myRigidbody = GetComponent<Rigidbody2D>();
     }
 
+
+    protected void Update()
+    {
+        if(clase == 2)
+        {
+            transform.Rotate(0f, 0f, 0.8f);
+        }
+
+        
+    }
+
+
     protected void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.GetComponent<Bullet>() != null)
@@ -30,6 +44,14 @@ public class Hazard : MonoBehaviour
             {
                 OnHazardDestroyed();
             }
+
+           
+        }
+
+        if(collision.gameObject.GetComponent<Shelter>() != null)
+        {
+            Destroy(gameObject);
+            SceneManager.LoadScene("Game Over");
         }
     }
 
