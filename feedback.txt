@@ -1,0 +1,18 @@
+Feedback
+
+Examen (1.75/5.0)
+ * Mala subida del proyecto. Tocó reubicar archivos en el proyecto.
+ * Tocó importar un asset externo que no era necesario para el proyecto.
+ * No hay GameOver cuando un hazard traspasa la pposición del jugador.
+ * La implementación de disparo no satisface el enunciado.
+ * Invader no se mueve según el enunciado ni gira al morir, puesto que no hay implementación que cubra el tipo 3
+ * La implementación de Debris e Invader no se hicieron usando OOP. Debris es funcional, pero se pidió utilizar OOP y ese era un caso obvio.
+ * No hay implementación de APBullet.
+ * El shelter recibe daño y hay GameOver, pero no se destruye. Podríamos decir que ocurre tras bambalinas, pero se pidió que el shelter se destruyera.
+ * Por qué el tiempo de regeneración del shelter es un número quemado en código?
+ * La implementación del tiempo de regeneración está errada. Solo estás validando el tiempo una vez. 5F - 0.000XF una vez nunca va llegar a la condición. 
+
+Bonificación (0.0/0.5)
+ * No hay propuesta para la bonificación.
+
+Total: 1.75 / 5.0
